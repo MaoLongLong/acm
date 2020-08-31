@@ -14,34 +14,31 @@
 #include <string>
 #include <vector>
 #define INF 0x3f3f3f3f
+#define MAX 100005
 using namespace std;
+typedef long long LL;
+
+int t, n, s, x, l, r, sum, ans, a[MAX];
 
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("in.txt", "r", stdin);
     freopen("out.txt", "w", stdout);
 #endif
-    ios::sync_with_stdio(false), cin.tie(NULL), cout.tie(NULL);
-    int t, n, s, x, l, r, sum, ans;
-    vector<int> v = vector<int>();
-    cin >> t;
+    scanf("%d", &t);
     while (t--) {
-        cin >> n >> s;
-        for (int i = 0; i < n; ++i) {
-            cin >> x;
-            v.push_back(x);
-        }
+        scanf("%d%d", &n, &s);
+        for (int i = 0; i < n; ++i) scanf("%d", a + i);
         l = r = sum = 0;
         ans = INF;
         while (1) {
-            while (r < n && sum < s) sum += v[r++];
+            while (r < n && sum < s) sum += a[r++];
             if (sum < s) break;
             ans = min(ans, r - l);
-            sum -= v[l++];
+            sum -= a[l++];
         }
         if (ans == INF) ans = 0;
-        cout << ans << endl;
-        v.clear();
+        printf("%d\n", ans);
     }
     return 0;
 }

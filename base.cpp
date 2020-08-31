@@ -14,7 +14,9 @@
 #include <string>
 #include <vector>
 #define INF 0x3f3f3f3f
+#define MAX 100005
 using namespace std;
+typedef long long LL;
 
 int main() {
 #ifndef ONLINE_JUDGE
