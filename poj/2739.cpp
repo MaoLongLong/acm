@@ -48,7 +48,7 @@ int main() {
 			while (prime[r] <= x && sum < x) sum += prime[r++];
 			if (sum < x && prime[r] > x) break;
 			if (sum == x) cnt++;
-			if (sum >= x) sum -= prime[l++];
+			sum -= prime[l++];
 		}
 		printf("%d\n", cnt);
 	}
