@@ -1,3 +1,4 @@
+// 尺取法
 #include <algorithm>
 #include <bitset>
 #include <climits>
@@ -28,7 +29,7 @@ int main() {
     freopen("out.txt", "w", stdout);
 #endif
 
-    while (scanf("%d%d", &n, &k) && n + k) {
+    while (scanf("%d%d", &n, &k) && (n || k)) {
         sum[0] = make_pair(0, 0);
         for (int i = 1; i <= n; ++i) {
             scanf("%d", a + i);
