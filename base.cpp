@@ -13,10 +13,11 @@
 #include <stack>
 #include <string>
 #include <vector>
-#define INF 0x3f3f3f3f
-#define MAX 100005
 using namespace std;
+const int MAXN = 1000005;
+const int INF = 0x3f3f3f3f;
 typedef long long LL;
+typedef unsigned long long ULL;
 
 int main() {
 #ifndef ONLINE_JUDGE
@@ -24,5 +25,9 @@ int main() {
     freopen("out.txt", "w", stdout);
 #endif
 
+#ifndef ONLINE_JUDGE
+    fclose(stdin);
+    fclose(stdout);
+#endif
     return 0;
 }

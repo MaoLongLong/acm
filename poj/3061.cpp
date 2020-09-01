@@ -14,12 +14,12 @@
 #include <stack>
 #include <string>
 #include <vector>
-#define INF 0x3f3f3f3f
-#define MAX 100005
 using namespace std;
+const int MAXN = 1000005;
+const int INF = 0x3f3f3f3f;
 typedef long long LL;
 
-int t, n, s, x, l, r, sum, ans, a[MAX];
+int t, n, s, x, l, r, sum, ans, a[MAXN];
 
 int main() {
 #ifndef ONLINE_JUDGE
@@ -41,5 +41,9 @@ int main() {
         if (ans == INF) ans = 0;
         printf("%d\n", ans);
     }
+#ifndef ONLINE_JUDGE
+    fclose(stdin);
+    fclose(stdout);
+#endif
     return 0;
 }

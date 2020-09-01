@@ -14,12 +14,12 @@
 #include <stack>
 #include <string>
 #include <vector>
-#define INF 0x3f3f3f3f
-#define MAX 1000005
 using namespace std;
+const int MAXN = 1000005;
+const int INF = 0x3f3f3f3f;
 typedef long long LL;
 
-int p, n, l, r, sum, ans, a[MAX];
+int p, n, l, r, sum, ans, a[MAXN];
 set<int> vis;
 map<int, int> cnt;
 
@@ -44,5 +44,9 @@ int main() {
         if (--cnt[a[l++]] == 0) sum--;
     }
     printf("%d\n", ans);
+#ifndef ONLINE_JUDGE
+    fclose(stdin);
+    fclose(stdout);
+#endif
     return 0;
 }
