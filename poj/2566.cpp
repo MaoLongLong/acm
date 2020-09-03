@@ -1,3 +1,4 @@
+// 尺取法
 #include <algorithm>
 #include <bitset>
 #include <climits>
@@ -14,6 +15,7 @@
 #include <stack>
 #include <string>
 #include <vector>
+#define mem(a, v) memset(a, v, sizeof(a))
 using namespace std;
 const int MAXN = 100005;
 const int INF = 0x3f3f3f3f;

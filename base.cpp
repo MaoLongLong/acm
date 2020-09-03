@@ -14,6 +14,7 @@
 #include <stack>
 #include <string>
 #include <vector>
+#define mem(a, v) memset(a, v, sizeof(a))
 using namespace std;
 const int MAXN = 1000005;
 const int INF = 0x3f3f3f3f;

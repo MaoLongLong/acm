@@ -15,6 +15,7 @@
 #include <stack>
 #include <string>
 #include <vector>
+#define mem(a, v) memset(a, v, sizeof(a))
 using namespace std;
 const int MAXN = 10000;
 const int INF = 0x3f3f3f3f;
@@ -43,7 +44,7 @@ int main() {
 		sum -= l * l;
 		l++;
 	}
-	
+
 	printf("%d\n", ans.size());
 	for (int i = 0; i < ans.size(); ++i) {
 		pair<int, int> p = ans[i];
@@ -51,7 +52,7 @@ int main() {
 		for (int i = p.first; i < p.second; ++i) printf(" %lld", i);
 		printf("\n");
 	}
-	
+
 #ifndef ONLINE_JUDGE
     fclose(stdin);
     fclose(stdout);

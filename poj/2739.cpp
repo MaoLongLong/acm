@@ -15,6 +15,7 @@
 #include <stack>
 #include <string>
 #include <vector>
+#define mem(a, v) memset(a, v, sizeof(a))
 using namespace std;
 const int MAXN = 10000;
 const int INF = 0x3f3f3f3f;
@@ -53,7 +54,7 @@ int main() {
 		}
 		printf("%d\n", cnt);
 	}
-	
+
 #ifndef ONLINE_JUDGE
     fclose(stdin);
     fclose(stdout);
