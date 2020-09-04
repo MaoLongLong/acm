@@ -6,3 +6,4 @@
 !.editorconfig
 
 .vscode/
+test.cpp

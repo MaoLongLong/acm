@@ -15,11 +15,12 @@
 #include <string>
 #include <vector>
 #define mem(a, v) memset(a, v, sizeof(a))
+#define INF 0x3f3f3f3f
+#define PI acos(-1.0)
+#define MAXN 100005
+#define LL long long
+#define ULL unsigned long long
 using namespace std;
-const int MAXN = 1000005;
-const int INF = 0x3f3f3f3f;
-typedef long long LL;
-typedef unsigned long long ULL;
 
 int main() {
 #ifndef ONLINE_JUDGE
