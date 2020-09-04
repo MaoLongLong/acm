@@ -43,12 +43,12 @@ int main() {
                 }
             }
         }
-        //		for (int i = 1; i <= r; ++i) {
-        //			for (int j = 1; j <= c; ++j) {
-        //				printf("%d ", sum[i][j]);
-        //			}
-        //			printf("\n");
-        //		}
+        // for (int i = 1; i <= r; ++i) {
+        //     for (int j = 1; j <= c; ++j) {
+        //         printf("%d ", sum[i][j]);
+        //     }
+        //     printf("\n");
+        // }
         for (int i = r; i > 0; --i) {
             if (sum[i][c] < k) break;
             for (int j = 0; j < i; ++j) {

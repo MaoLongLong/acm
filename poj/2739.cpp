@@ -26,15 +26,15 @@ int len, x, l, r, sum, cnt, prime[MAXN];
 bool vis[MAXN];
 
 void get_prime() {
-	len = 0;
-	memset(vis, 0, sizeof(vis));
-	for (int i = 2; i <= MAXN; ++i) {
-		if (!vis[i]) prime[len++] = i;
-		for (int j = 0; j < len && i * prime[j] <= MAXN; ++j) {
-			vis[i * prime[j]] = 1;
-			if (i % prime[j] == 0) break;
-		}
-	}
+    len = 0;
+    mem(vis, 0);
+    for (int i = 2; i <= MAXN; ++i) {
+        if (!vis[i]) prime[len++] = i;
+        for (int j = 0; j < len && i * prime[j] <= MAXN; ++j) {
+            vis[i * prime[j]] = 1;
+            if (i % prime[j] == 0) break;
+        }
+    }
 }
 
 int main() {
@@ -43,17 +43,17 @@ int main() {
     freopen("out.txt", "w", stdout);
 #endif
 
-	get_prime();
-	while (scanf("%d", &x) && x) {
-		l = r = sum = cnt = 0;
-		while (1) {
-			while (prime[r] <= x && sum < x) sum += prime[r++];
-			if (sum < x && prime[r] > x) break;
-			if (sum == x) cnt++;
-			sum -= prime[l++];
-		}
-		printf("%d\n", cnt);
-	}
+    get_prime();
+    while (scanf("%d", &x) && x) {
+        l = r = sum = cnt = 0;
+        while (1) {
+            while (prime[r] <= x && sum < x) sum += prime[r++];
+            if (sum < x && prime[r] > x) break;
+            if (sum == x) cnt++;
+            sum -= prime[l++];
+        }
+        printf("%d\n", cnt);
+    }
 
 #ifndef ONLINE_JUDGE
     fclose(stdin);

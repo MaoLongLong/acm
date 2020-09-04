@@ -1,4 +1,3 @@
-// 尺取法
 #include <algorithm>
 #include <bitset>
 #include <climits>
@@ -17,13 +16,20 @@
 #include <vector>
 #define mem(a, v) memset(a, v, sizeof(a))
 using namespace std;
-const int MAXN = 10000;
+const int MAXN = 1000005;
 const int INF = 0x3f3f3f3f;
 typedef long long LL;
 typedef unsigned long long ULL;
 
-LL n, l, r, sum;
-vector<pair<LL, LL>> ans;
+LL quick_pow(LL x, LL n) {
+    LL res = 1;
+    while (n) {
+        if (n & 1) res = res * x % 10;
+        x = x * x % 10;
+        n >>= 1;
+    }
+    return res;
+}
 
 int main() {
 #ifndef ONLINE_JUDGE
@@ -31,26 +37,12 @@ int main() {
     freopen("out.txt", "w", stdout);
 #endif
 
-    scanf("%lld", &n);
-    l = r = 1;
-    sum = 0;
-    while (1) {
-        while (r * r <= n && sum < n) {
-            sum += r * r;
-            r++;
-        }
-        if (r * r > n && sum < n) break;
-        if (sum == n) ans.push_back(make_pair(l, r));
-        sum -= l * l;
-        l++;
-    }
-
-    printf("%d\n", ans.size());
-    for (int i = 0; i < ans.size(); ++i) {
-        pair<int, int> p = ans[i];
-        printf("%lld", p.second - p.first);
-        for (int i = p.first; i < p.second; ++i) printf(" %lld", i);
-        printf("\n");
+    int t;
+    LL n;
+    scanf("%d", &t);
+    while (t--) {
+        scanf("%lld", &n);
+        printf("%lld\n", quick_pow(n, n));
     }
 
 #ifndef ONLINE_JUDGE
