@@ -17,35 +17,42 @@
 #include <vector>
 #define mem(a, v) memset(a, v, sizeof(a))
 using namespace std;
-const int MAXN = 1000005;
+const int MAXN = 10000;
 const int INF = 0x3f3f3f3f;
 typedef long long LL;
+typedef unsigned long long ULL;
 
-int p, n, l, r, sum, ans, a[MAXN];
-set<int> vis;
-map<int, int> cnt;
+LL n, l, r, sum;
+vector<pair<LL, LL>> ans;
 
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("in.txt", "r", stdin);
     freopen("out.txt", "w", stdout);
 #endif
-    scanf("%d", &p);
-    for (int i = 0; i < p; ++i) {
-        scanf("%d", a + i);
-        vis.insert(a[i]);
-    }
-    n = vis.size();
-    l = r = sum = 0;
-    ans = INF;
+
+    scanf("%lld", &n);
+    l = r = 1;
+    sum = 0;
     while (1) {
-        while (r < p && sum < n)
-            if (cnt[a[r++]]++ == 0) sum++;
-        if (sum < n) break;
-        ans = min(ans, r - l);
-        if (--cnt[a[l++]] == 0) sum--;
+        while (r * r <= n && sum < n) {
+            sum += r * r;
+            r++;
+        }
+        if (r * r > n && sum < n) break;
+        if (sum == n) ans.push_back(make_pair(l, r));
+        sum -= l * l;
+        l++;
     }
-    printf("%d\n", ans);
+
+    printf("%d\n", ans.size());
+    for (int i = 0; i < ans.size(); ++i) {
+        pair<int, int> p = ans[i];
+        printf("%lld", p.second - p.first);
+        for (int i = p.first; i < p.second; ++i) printf(" %lld", i);
+        printf("\n");
+    }
+
 #ifndef ONLINE_JUDGE
     fclose(stdin);
     fclose(stdout);

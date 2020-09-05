@@ -1,4 +1,4 @@
-// 尺取法
+// 快速幂
 #include <algorithm>
 #include <bitset>
 #include <climits>
@@ -20,29 +20,32 @@ using namespace std;
 const int MAXN = 1000005;
 const int INF = 0x3f3f3f3f;
 typedef long long LL;
+typedef unsigned long long ULL;
 
-int t, n, s, x, l, r, sum, ans, a[MAXN];
+LL quick_pow(LL x, LL n) {
+    LL res = 1;
+    while (n) {
+        if (n & 1) res = res * x % 10;
+        x = x * x % 10;
+        n >>= 1;
+    }
+    return res;
+}
 
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("in.txt", "r", stdin);
     freopen("out.txt", "w", stdout);
 #endif
+
+    int t;
+    LL n;
     scanf("%d", &t);
     while (t--) {
-        scanf("%d%d", &n, &s);
-        for (int i = 0; i < n; ++i) scanf("%d", a + i);
-        l = r = sum = 0;
-        ans = INF;
-        while (1) {
-            while (r < n && sum < s) sum += a[r++];
-            if (sum < s) break;
-            ans = min(ans, r - l);
-            sum -= a[l++];
-        }
-        if (ans == INF) ans = 0;
-        printf("%d\n", ans);
+        scanf("%lld", &n);
+        printf("%lld\n", quick_pow(n, n));
     }
+
 #ifndef ONLINE_JUDGE
     fclose(stdin);
     fclose(stdout);
