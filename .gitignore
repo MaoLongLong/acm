@@ -2,6 +2,7 @@
 
 !*/
 !*.cpp
+!*.java
 !.gitignore
 !.editorconfig
 
