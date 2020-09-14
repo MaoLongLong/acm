@@ -15,27 +15,28 @@
 #include <stack>
 #include <string>
 #include <vector>
+#define mem(a, v) memset(a, v, sizeof(a))
 #define inf 0x3f3f3f3f
 #define pi acos(-1.0)
-#define maxn 10005
+#define maxn 100005
 #define ll long long
 #define ull unsigned long long
 using namespace std;
-int read() {
-    int x = 0, f = 1;
-    char c = getchar();
-    while (c < '0' || c > '9') {
-        if (c == '-') f = -1;
-        c = getchar();
+
+ll quick_pow(ll b, ll p, ll k) {
+    ll ans = 1;
+    while (p) {
+        if (p & 1) ans = ans * b % k;
+        b = b * b % k;
+        p >>= 1;
     }
-    while (c >= '0' && c <= '9') {
-        x = x * 10 + c - '0';
-        c = getchar();
-    }
-    return x * f;
+    return ans % k;
 }
 
 int main() {
-
+    ll b, p, k;
+    scanf("%lld%lld%lld", &b, &p, &k);
+    printf("%lld^%lld mod %lld=%lld\n", b, p, k, quick_pow(b, p, k));
+    system("pause");
     return 0;
 }

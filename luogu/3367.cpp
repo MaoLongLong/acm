@@ -35,7 +35,33 @@ int read() {
     return x * f;
 }
 
-int main() {
+int n, m, z, x, y, a[maxn];
 
+int find(int x) {
+    return x == a[x] ? x : a[x] = find(a[x]);
+}
+
+void _union(int x, int y) {
+    int f1 = find(x), f2 = find(y);
+    if (f1 != f2) {
+        a[f1] = f2;
+    }
+}
+
+int main() {
+    n = read(), m = read();
+    for (int i = 1; i <= n; ++i) a[i] = i;
+    for (int i = 0; i < m; ++i) {
+        z = read(), x = read(), y = read();
+        if (z == 1)
+            _union(x, y);
+        else {
+            if (find(x) == find(y))
+                printf("Y\n");
+            else
+                printf("N\n");
+        }
+    }
+    system("pause");
     return 0;
 }
