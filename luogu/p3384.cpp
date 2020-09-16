@@ -17,7 +17,7 @@
 #include <vector>
 #define inf 0x3f3f3f3f
 #define pi acos(-1.0)
-#define maxn 10005
+#define maxn 100000005
 #define ll long long
 #define ull unsigned long long
 using namespace std;
@@ -35,33 +35,27 @@ int read() {
     return x * f;
 }
 
-int n, m, z, x, y, a[maxn];
+int n, q, k, prime[maxn];
+bool vis[maxn];
 
-int find(int x) {
-    return x == a[x] ? x : a[x] = find(a[x]);
-}
-
-void _union(int x, int y) {
-    int f1 = find(x), f2 = find(y);
-    if (f1 != f2) {
-        a[f1] = f2;
+void get_prime() {
+    int cnt = 0;
+    for (int i = 2; i <= n; ++i) {
+        if (!vis[i]) prime[cnt++] = i;
+        for (int j = 0; j < cnt && i * prime[j] <= n; ++j) {
+            vis[i * prime[j]] = 1;
+            if (i % prime[j] == 0) break;
+        }
     }
 }
 
 int main() {
-    n = read(), m = read();
-    for (int i = 1; i <= n; ++i) a[i] = i;
-    for (int i = 0; i < m; ++i) {
-        z = read(), x = read(), y = read();
-        if (z == 1)
-            _union(x, y);
-        else {
-            if (find(x) == find(y))
-                printf("Y\n");
-            else
-                printf("N\n");
-        }
+    n = read(), q = read();
+    get_prime();
+    for (int i = 0; i < q; ++i) {
+        k = read();
+        printf("%d\n", prime[k - 1]);
     }
-    system("pause");
+    // system("pause");
     return 0;
 }
