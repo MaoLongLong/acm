@@ -1,27 +1,10 @@
-#include <algorithm>
-#include <bitset>
-#include <climits>
-#include <cmath>
-#include <cstdio>
-#include <cstring>
-#include <deque>
-#include <functional>
-#include <iostream>
-#include <map>
-#include <numeric>
-#include <queue>
-#include <set>
-#include <sstream>
-#include <stack>
-#include <string>
-#include <vector>
+#include <bits/stdc++.h>
 #define inf 0x3f3f3f3f
 #define pi acos(-1.0)
 #define maxn 1000005
 #define ll long long
 #define ull unsigned long long
-#define re register
-#define il inline
+#define rei register int
 using namespace std;
 int read() {
     int x = 0, f = 1;
@@ -35,7 +18,18 @@ int read() {
     return x * f;
 }
 
+int n, c, a[maxn];
+ll ans;
+
 int main() {
-    system("pause");
+    n = read(), c = read();
+    for (rei i = 1; i <= n; ++i) a[i] = read();
+    sort(a + 1, a + 1 + n);
+    for (rei i = 1; i < n; ++i) {
+        pair<int*, int*> p = equal_range(a + 1 + i, a + 1 + n, a[i] + c);
+        ans += p.second - p.first;
+    }
+    printf("%lld\n", ans);
+    // system("pause");
     return 0;
 }

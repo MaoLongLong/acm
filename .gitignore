@@ -7,4 +7,5 @@
 !.editorconfig
 
 .vscode/
-test.cpp
+temp/
+temp.cpp

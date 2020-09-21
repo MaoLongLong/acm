@@ -6,10 +6,9 @@
 #define ll long long
 #define ull unsigned long long
 #define re register
-#define il inline
 using namespace std;
-il int read() {
-    re int x = 0, f = 1;
+int read() {
+    int x = 0, f = 1;
     char c = getchar();
     while (c < '0' || c > '9') {
         if (c == '-') f = -1;
@@ -20,23 +19,23 @@ il int read() {
     return x * f;
 }
 
-int n, op, x, a[maxn], heap_size;
+int n, op, x, heap[maxn], heap_size;
 
-il void swim(int x) {
+void swim(int x) {
     int p = x >> 1;
-    while (p > 0 && a[x] < a[p]) {
-        swap(a[x], a[p]);
+    while (p > 0 && heap[x] < heap[p]) {
+        swap(heap[x], heap[p]);
         x = p;
         p = x >> 1;
     }
 }
 
-il void sink(int x) {
+void sink(int x) {
     int c = x << 1;
     while (c <= heap_size) {
-        if (c + 1 <= heap_size && a[c + 1] < a[c]) c++;
-        if (a[c] < a[x]) {
-            swap(a[c], a[x]);
+        if (c + 1 <= heap_size && heap[c + 1] < heap[c]) c++;
+        if (heap[c] < heap[x]) {
+            swap(heap[c], heap[x]);
             x = c;
             c = x << 1;
         } else {
@@ -45,8 +44,8 @@ il void sink(int x) {
     }
 }
 
-il void pop() {
-    swap(a[1], a[heap_size--]);
+void pop() {
+    swap(heap[1], heap[heap_size--]);
     sink(1);
 }
 
@@ -56,10 +55,10 @@ int main() {
         op = read();
         if (op == 1) {
             x = read();
-            a[++heap_size] = x;
+            heap[++heap_size] = x;
             swim(heap_size);
         } else if (op == 2) {
-            printf("%d\n", a[1]);
+            printf("%d\n", heap[1]);
         } else {
             pop();
         }

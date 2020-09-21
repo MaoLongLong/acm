@@ -5,10 +5,9 @@
 #define ll long long
 #define ull unsigned long long
 #define re register
-#define il inline
 using namespace std;
-il int read() {
-    re int x = 0, f = 1;
+int read() {
+    int x = 0, f = 1;
     char c = getchar();
     while (c < '0' || c > '9') {
         if (c == '-') f = -1;
@@ -21,16 +20,16 @@ il int read() {
 
 int n, m, op, x, y, a[maxn];
 
-il int lowbit(int x) { return x & -x; }
+inline int lowbit(int x) { return x & -x; }
 
-il void add(int x, int k) {
+inline void add(int x, int k) {
     while (x <= n) {
         a[x] += k;
         x += lowbit(x);
     }
 }
 
-il int sum(int x) {
+inline int sum(int x) {
     int ans = 0;
     while (x > 0) {
         ans += a[x];
