@@ -36,6 +36,19 @@ int read() {
 }
 
 int main() {
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
+char c;
+while (c = getchar()) {
+    if (c == EOF) break;
+    putchar(c);
+}
+#ifndef ONLINE_JUDGE
+    fclose(stdin);
+    fclose(stdout);
+#endif
     system("pause");
     return 0;
 }

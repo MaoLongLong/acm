@@ -1,4 +1,4 @@
-// 尺取法
+// 前缀和, 尺取法
 #include <algorithm>
 #include <bitset>
 #include <climits>

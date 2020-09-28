@@ -37,7 +37,7 @@ int read() {
     return x * f;
 }
 
-struct edge {
+struct Edge {
     int u, v, w, next;
 } e[maxm];
 
